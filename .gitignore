@@ -9,5 +9,7 @@ npm-debug.log
 # bower stuff
 bower_components
 
-# sass source maps
-css/*.map
+# processed css and js
+*.min.css
+*.min.js
+*.css.map
