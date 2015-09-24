@@ -1,0 +1,10 @@
+/*
+Theme Name: hmbl-WP
+Description: A blank slate theme for WordPress
+Version: 0.1
+License: MIT
+Tags: blankslate, bare, gulp
+Text Domain: hmblwp
+*/
+
+@import url(style.min.css);
