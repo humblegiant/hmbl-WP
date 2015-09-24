@@ -1,13 +1,13 @@
 {
-  "name": "libsass-test",
-  "version": "0.1.0",
+  "name": "tiny-wp",
+  "license": "MIT",
   "devDependencies": {
-    "autoprefixer-core": "^5.2.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "^0.9.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-postcss": "^0.5.1",
-    "grunt-sass": "^1.0.0",
-    "load-grunt-tasks": "^3.1.0"
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.4.1"
   }
 }
