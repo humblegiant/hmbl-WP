@@ -1,20 +1,18 @@
 <?php
-
-/* ==========================================================================
-CSS
-========================================================================== */
+/**
+ * Enqueue theme styles
+ */
 function hmbl_styles() {
   /* Register CSS */
   wp_register_style('style', get_template_directory_uri() . '/style.css');
   /* Enqueue CSS */
   wp_enqueue_style('style');
 }
-
 add_action( 'wp_enqueue_scripts', 'hmbl_styles' );
 
-/* ==========================================================================
-JS
-========================================================================== */
+/**
+ * Enqueue theme scripts
+ */
 function hmbl_scripts() {
   /* Register JS */
   wp_register_script('main', get_template_directory_uri() . '/script.min.js', array('jquery'), '1.0.0', true);
@@ -22,23 +20,18 @@ function hmbl_scripts() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('main');
 }
-
 add_action( 'wp_enqueue_scripts', 'hmbl_scripts' );
 
-/* ==========================================================================
-NAVS
-========================================================================== */
-
-add_action( 'after_setup_theme', 'register_my_menu' );
-
+/**
+ * Register menus
+ */
 function register_my_menu() {
   register_nav_menu( 'primary', __( 'Primary Menu', 'theme-slug' ) );
 }
 
-/* ==========================================================================
-WIDGETS
-========================================================================== */
-
+/**
+ * Register widget areas
+ */
 function hmbl_widgets_init() {
 
   register_sidebar( array(
@@ -71,24 +64,20 @@ function hmbl_widgets_init() {
 }
 add_action( 'widgets_init', 'hmbl_widgets_init' );
 
-/* ==========================================================================
-LOAD THEME LANGUAGE
-========================================================================== */
+/**
+ * Load theme text domain
+ */
 load_theme_textdomain( 'hmbl', get_stylesheet_directory().'/language' );
 
-/* ==========================================================================
-EMBED WRAPPER
-========================================================================== */
-
-add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+/**
+ * Add wrapper to embedded media
+ */
 function my_embed_oembed_html($html, $url, $attr, $post_id) {
   return '<div class="video-container">' . $html . '</div>';
 }
+add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
 
-/* ==========================================================================
-ADD FEATURED IMAGE
-========================================================================== */
-
+/**
+ * Add support for featured image
+ */
 add_theme_support( 'post-thumbnails' );
-
-?>
