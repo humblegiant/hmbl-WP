@@ -17,7 +17,7 @@ JS
 ========================================================================== */
 function hmbl_scripts() {
   /* Register JS */
-  wp_register_script('main', get_template_directory_uri() . '/js/script.min.js', array('jquery'), '1.0.0', true);
+  wp_register_script('main', get_template_directory_uri() . '/script.min.js', array('jquery'), '1.0.0', true);
   /* Enqueue JS */
   wp_enqueue_script('jquery');
   wp_enqueue_script('main');
