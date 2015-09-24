@@ -8,7 +8,7 @@
 
     <!-- close loop -->
     <?php endwhile; else: ?>
-      <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <p><?php _e( 'Sorry, no posts matched your criteria.', 'hmbl' ); ?></p>
     <?php endif; ?>
 
   <!-- close .page-body -->
