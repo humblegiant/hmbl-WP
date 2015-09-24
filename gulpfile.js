@@ -22,7 +22,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
     return gulp.src('./js/**/*.js')
       .pipe(uglify())
-      .pipe(concat('scripts.js'))
+      .pipe(concat('script.min.js'))
       .pipe(gulp.dest('./'));
 });
 
