@@ -3,10 +3,7 @@
  * Enqueue theme styles
  */
 function hmbl_styles() {
-  /* Register CSS */
-  wp_register_style('style', get_template_directory_uri() . '/style.css');
-  /* Enqueue CSS */
-  wp_enqueue_style('style');
+  wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
 }
 add_action( 'wp_enqueue_scripts', 'hmbl_styles' );
 
@@ -14,11 +11,7 @@ add_action( 'wp_enqueue_scripts', 'hmbl_styles' );
  * Enqueue theme scripts
  */
 function hmbl_scripts() {
-  /* Register JS */
-  wp_register_script('main', get_template_directory_uri() . '/script.min.js', array('jquery'), '1.0.0', true);
-  /* Enqueue JS */
-  wp_enqueue_script('jquery');
-  wp_enqueue_script('main');
+  wp_enqueue_script('main', get_template_directory_uri() . '/script.min.js', array('jquery'), '1.0.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'hmbl_scripts' );
 
@@ -28,6 +21,7 @@ add_action( 'wp_enqueue_scripts', 'hmbl_scripts' );
 function register_my_menu() {
   register_nav_menu( 'primary', __( 'Primary Menu', 'theme-slug' ) );
 }
+add_action( 'after_setup_theme', 'register_my_menu' );
 
 /**
  * Register widget areas
