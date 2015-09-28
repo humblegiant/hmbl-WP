@@ -13,3 +13,7 @@ bower_components
 *.min.css
 *.min.js
 *.css.map
+/main.css
+
+# Sass cache
+.sass-cache

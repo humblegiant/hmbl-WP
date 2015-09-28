@@ -1,34 +1,53 @@
 /* File: gulpfile.js */
 
-// grab our gulp packages
+// grab the gulp packages
 var gulp         = require('gulp'),
 	sass         = require('gulp-sass'),
-	rename       = require('gulp-rename'),
+	sourcemaps   = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
-	sourcemap    = require('gulp-sourcemaps'),
+	minifier     = require('gulp-minify-css'),
+	imagemin     = require('gulp-imagemin'),
+	pngquant     = require('imagemin-pngquant'),
 	uglify       = require('gulp-uglify'),
 	concat       = require('gulp-concat');
 
+// Sass compiler
 gulp.task('sass', function() {
-	return gulp.src('sass/style.scss')
-		.pipe(sourcemap.init())
+	return gulp.src('_source/main.scss')
+		.pipe(sourcemaps.init())
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 8"))
-		.pipe(rename('style.min.css'))
-		.pipe(sourcemap.write('./'))
+		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./'));
 });
 
+// Image processing
+gulp.task('processImages', function() {
+	return gulp.src(['**/*.@(png|jpg|jpeg|gif|svg)', '!@(node_modules/*|bower_components/*)'])
+		.pipe(imagemin({
+			optimizationLevel: 2,
+			progressive: true,
+			use: [pngquant()]
+		}))
+		.pipe(gulp.dest('./'));
+});
+
+// Process javascript
 gulp.task('js', function() {
-    return gulp.src('./js/**/*.js')
+    return gulp.src('_source/js/**/*.js')
       .pipe(uglify())
       .pipe(concat('script.min.js'))
       .pipe(gulp.dest('./'));
 });
 
+// Watch for changes
 gulp.task('serve', ['sass', 'js'], function(){
-	gulp.watch('./**/*.scss', ['sass']);
-	gulp.watch('./**/*.js', ['js']);
+	gulp.watch('_source/**/*.scss', ['sass']);
+	gulp.watch('_source/**/*.js', ['js']);
 });
 
+// Build task
+gulp.task('build', ['sass', 'js', 'processImages']);
+
+// Set serve as default task
 gulp.task('default', ['serve']);
