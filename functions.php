@@ -18,10 +18,10 @@ add_action( 'wp_enqueue_scripts', 'hmbl_scripts' );
 /**
  * Register menus
  */
-function register_my_menu() {
-  register_nav_menu( 'primary', __( 'Primary Menu', 'theme-slug' ) );
+function hmbl_register_menus() {
+  register_nav_menu( 'primary', __( 'Primary Menu', 'hmbl' ) );
 }
-add_action( 'after_setup_theme', 'register_my_menu' );
+add_action( 'after_setup_theme', 'hmbl_register_menus' );
 
 /**
  * Register widget areas
