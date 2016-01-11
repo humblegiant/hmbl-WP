@@ -15,5 +15,6 @@
     "bare-normalize-css": "~1.0.0",
     "bourbon": "~4.2.5",
     "compass-breakpoint": "breakpoint-sass#~2.6.1"
+    "normalize-scss": "~3.0.3"
   }
 }
