@@ -24,6 +24,45 @@ function hmbl_register_menus() {
 add_action( 'after_setup_theme', 'hmbl_register_menus' );
 
 /**
+ * Add Open Graph tags
+ */
+function hmbl_og_tags() {
+  global $post;
+  // Get the URL
+  $url = get_the_permalink();
+
+  // Get the image
+  if (has_post_thumbnail()) {
+    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+    $image = $image_src[0];
+  }
+
+  // Get the excerpt
+  if (strlen($post->post_excerpt) > 0) {
+    $description = $post->post_excerpt;
+  } else if (strlen(strip_tags($post->post_content)) > 0) {
+    $full_content = $post->post_content;
+    $description = substr(strip_tags($post->post_content), 0, 100);
+  } else {
+    $description = get_bloginfo('description');
+  }
+  $description = strip_tags($description);
+
+  // Get the title
+  $title = is_front_page() ? get_bloginfo('name') : get_the_title();
+
+  ?>
+  <meta property="og:url" content="<?php echo $url ?>" />
+  <?php if (isset($image) && !empty($image)): ?><meta property="og:image" content="<?php echo $image ?>" /><?php endif ?>
+
+  <meta property="og:title" content="<?php echo $title ?>" />
+  <meta property="og:description" content="<?php echo $description ?>" />
+  <?php
+}
+add_action( 'wp_head', 'hmbl_og_tags', 5 );
+
+
+/**
  * Register widget areas
  */
 function hmbl_widgets_init() {
