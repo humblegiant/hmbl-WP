@@ -9,8 +9,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <header class="header">
-    <nav class="header-menu">
-      <?php wp_nav_menu(array('theme_location' => 'primary')) ?>
-    </nav>
-  </header>
+	<header class="header">
+		<nav class="header-menu">
+			<?php wp_nav_menu(array('theme_location' => 'primary')) ?>
+		</nav>
+	</header>
