@@ -66,10 +66,10 @@ load_theme_textdomain( 'hmbl', get_stylesheet_directory().'/language' );
 /**
  * Add wrapper to embedded media
  */
-function my_embed_oembed_html($html, $url, $attr, $post_id) {
+function hmbl_embed_oembed_html($html, $url, $attr, $post_id) {
   return '<div class="video-container">' . $html . '</div>';
 }
-add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+add_filter('embed_oembed_html', 'hmbl_embed_oembed_html', 99, 4);
 
 /**
  * Add support for featured image
