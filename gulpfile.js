@@ -35,7 +35,7 @@ gulp.task('processImages', function() {
 // Process javascript
 gulp.task('js', function() {
     return gulp.src('_source/js/**/*.js')
-      .pipe(uglify())
+      .pipe(uglify()).on('error', logError)
       .pipe(concat('script.min.js'))
       .pipe(gulp.dest('./'));
 });
@@ -51,3 +51,15 @@ gulp.task('build', ['sass', 'js', 'processImages']);
 
 // Set serve as default task
 gulp.task('default', ['serve']);
+
+// Error handler
+var logError = function(error) {
+	var formattedString;
+	var prefix = '#   ';
+	formattedString  = prefix + 'ERROR [' + error.plugin + '] [Line number: ' + error.lineNumber + ']\n';
+	formattedString += prefix + error.message.replace(/: /,'\r\n' + prefix);
+
+	console.log(formattedString);
+
+	this.emit('end');
+};
