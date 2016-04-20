@@ -14,5 +14,6 @@
     "susy": "~2.2.6",
     "bare-normalize-css": "~1.0.0",
     "bourbon": "~4.2.5",
+    "breakpoint-sass": "^2.7.0"
   }
 }
