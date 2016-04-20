@@ -1,6 +1,7 @@
 {
-  "name": "tiny-wp",
+  "name": "hmbl-WP",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
