@@ -17,6 +17,8 @@
 			<p><?php _e( 'Sorry, no posts matched your criteria.', 'hmbl' ); ?></p>
 		<?php endif; ?>
 
+		<?php get_sidebar(); ?>
+
 	</main>
 
 <?php get_footer(); ?>

@@ -9,6 +9,8 @@
 			<p><?php get_search_form(); ?></p>
 		</article>
 
+		<?php get_sidebar(); ?>
+
 	</main>
 
 <?php get_footer(); ?>
