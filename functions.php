@@ -66,34 +66,14 @@ add_action( 'wp_head', 'hmbl_og_tags', 5 );
  * Register widget areas
  */
 function hmbl_widgets_init() {
-
 	register_sidebar( array(
-		'name'          => 'Footer 1',
-		'id'            => 'footer_1',
-		'before_widget' => '<div class="footer-widget">',
+		'name'          => 'Primary Sidebar',
+		'id'            => 'primary_sidebar',
+		'before_widget' => '<div class="sidebar-widget">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
 	));
-
-	register_sidebar( array(
-		'name'          => 'Footer 2',
-		'id'            => 'footer_2',
-		'before_widget' => '<div class="footer-widget">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="">',
-		'after_title'   => '</h2>',
-	));
-
-	register_sidebar( array(
-		'name'          => 'Footer 3',
-		'id'            => 'footer_3',
-		'before_widget' => '<div class="footer-widget">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2>',
-		'after_title'   => '</h2>',
-	));
-
 }
 add_action( 'widgets_init', 'hmbl_widgets_init' );
 
