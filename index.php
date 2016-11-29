@@ -1,20 +1,22 @@
 <?php get_header(); ?>
 
-	<div class="wrapper page-wrapper">
+	<main class="wrapper page-wrapper">
 
 		<?php if (have_posts()): while(have_posts()): the_post(); ?>
 
-			<div class="wrapper content-wrapper">
-				<h1><?php the_title(); ?></h1>
+			<article class="wrapper content-wrapper">
+				<header>
+					<h1><?php the_title(); ?></h1>
+				</header>
 				<div>
 					<?php the_content(); ?>
 				</div>
-			</div>
+			</article>
 
 		<?php endwhile; else: ?>
 			<p><?php _e( 'Sorry, no posts matched your criteria.', 'hmbl' ); ?></p>
 		<?php endif; ?>
 
-	</div>
+	</main>
 
 <?php get_footer(); ?>
