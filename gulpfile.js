@@ -18,7 +18,7 @@ gulp.task('sass', function() {
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest('./css/'));
 });
 
 // Image processing
@@ -37,7 +37,7 @@ gulp.task('js', function() {
     return gulp.src('_source/js/**/*.js')
       .pipe(uglify()).on('error', logError)
       .pipe(concat('script.min.js'))
-      .pipe(gulp.dest('./'));
+      .pipe(gulp.dest('./js/'));
 });
 
 // Watch for changes
