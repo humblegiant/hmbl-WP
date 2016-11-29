@@ -10,7 +10,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header class="header">
+	<header class="wrapper header">
 		<nav class="header-menu">
 			<?php wp_nav_menu(array('theme_location' => 'primary')) ?>
 		</nav>
