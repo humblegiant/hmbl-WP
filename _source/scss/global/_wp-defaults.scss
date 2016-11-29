@@ -1,0 +1,97 @@
+%align {
+	margin: 0.4em 2em 2em;
+}
+
+.alignnone {
+	@extend %align;
+	float: none;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.alignleft {
+	@extend %align;
+	float: left;
+	margin-left: 0;
+
+	@media #{$mq-sm} {
+		max-width: 50%;
+	}
+
+	.wp-caption-text {
+		text-align: left;
+	}
+}
+
+.aligncenter {
+	@extend %align;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	.wp-caption-text {
+		text-align: center;
+	}
+}
+
+.alignright {
+	@extend %align;
+	float: right;
+	margin-right: 0;
+
+	@media #{$mq-xs} {
+		max-width: 50%;
+	}
+
+	.wp-caption-text {
+		text-align: right;
+	}
+}
+
+@media #{$mq-below-xs} {
+	.alignleft,
+	.alignright {
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+		display: block;
+
+		&.rounded {
+			max-width: 70%;
+		}
+	}
+}
+
+.wp-caption {
+	display: inline-block;
+	max-width: 100%;
+	position: relative;
+
+	@media #{$mq-xs} {
+		&.alignleft,
+		&.alignright {
+			max-width: 50%;
+		}
+	}
+
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.wp-caption-text {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		padding: 1em;
+		margin: 0;
+		background: rgba(0,0,0,0.4);
+	}
+}
+
+.gallery {
+	&-item {}
+	&-icon {}
+}

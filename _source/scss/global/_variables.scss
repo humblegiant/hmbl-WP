@@ -1,0 +1,21 @@
+// Breakpoints
+$bp-xs: 30.06em;
+$bp-sm: 48em;
+$bp-md: 62em;
+$bp-lg: 75em;
+
+$bp-below-xs: 30em;
+$bp-below-sm: 47.94em;
+$bp-below-md: 61.94em;
+$bp-below-lg: 74.94em;
+
+// Media queries
+$mq-xs: "screen and (min-width: #{$bp-xs})";
+$mq-sm: "screen and (min-width: #{$bp-sm})";
+$mq-md: "screen and (min-width: #{$bp-md})";
+$mq-lg: "screen and (min-width: #{$bp-lg})";
+
+$mq-below-xs: "screen and (max-width: #{$bp-below-xs})";
+$mq-below-sm: "screen and (max-width: #{$bp-below-sm})";
+$mq-below-md: "screen and (max-width: #{$bp-below-md})";
+$mq-below-lg: "screen and (max-width: #{$bp-below-lg})";
