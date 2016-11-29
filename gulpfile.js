@@ -6,8 +6,6 @@ var gulp         = require('gulp'),
 	sourcemaps   = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifier     = require('gulp-clean-css'),
-	imagemin     = require('gulp-imagemin'),
-	pngquant     = require('imagemin-pngquant'),
 	uglify       = require('gulp-uglify'),
 	concat       = require('gulp-concat');
 
@@ -19,17 +17,6 @@ gulp.task('sass', function() {
 		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css/'));
-});
-
-// Image processing
-gulp.task('processImages', function() {
-	return gulp.src(['**/*.@(png|jpg|jpeg|gif|svg)', '!@(node_modules/*|bower_components/*)'])
-		.pipe(imagemin({
-			optimizationLevel: 2,
-			progressive: true,
-			use: [pngquant()]
-		}))
-		.pipe(gulp.dest('./'));
 });
 
 // Process javascript
@@ -45,9 +32,6 @@ gulp.task('serve', ['sass', 'js'], function(){
 	gulp.watch('_source/**/*.scss', ['sass']);
 	gulp.watch('_source/**/*.js', ['js']);
 });
-
-// Build task
-gulp.task('build', ['sass', 'js', 'processImages']);
 
 // Set serve as default task
 gulp.task('default', ['serve']);
