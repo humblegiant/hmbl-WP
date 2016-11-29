@@ -67,7 +67,7 @@ add_action( 'wp_head', 'hmbl_og_tags', 5 );
  */
 function hmbl_widgets_init() {
 	register_sidebar( array(
-		'name'          => 'Primary Sidebar',
+		'name'          => __( 'Primary Sidebar', 'hmbl' ),
 		'id'            => 'primary_sidebar',
 		'before_widget' => '<div class="sidebar-widget">',
 		'after_widget'  => '</div>',
