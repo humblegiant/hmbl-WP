@@ -3,6 +3,8 @@
 @import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
 @import "../bower_components/bare-normalize-css/core.normalize-css";
 
+// Mixins
+@import 'mixins/clearfix';
 
 // Remove list styles
 ul {

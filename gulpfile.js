@@ -11,7 +11,7 @@ var gulp         = require('gulp'),
 
 // Sass compiler
 gulp.task('sass', function() {
-	return gulp.src('_source/main.scss')
+	return gulp.src('_source/scss/main.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
