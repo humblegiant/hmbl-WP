@@ -61,6 +61,11 @@ function hmbl_og_tags() {
 }
 add_action( 'wp_head', 'hmbl_og_tags', 5 );
 
+// Remove the extra 10 px "padding" from captioned images
+function remove_caption_extra_width($width) {
+	return $width - 10;
+}
+add_filter('img_caption_shortcode_width', 'remove_caption_extra_width');
 
 /**
  * Register widget areas

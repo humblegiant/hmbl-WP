@@ -81,13 +81,10 @@
 
 	.wp-caption-text {
 		display: block;
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		left: 0;
 		padding: 1em;
 		margin: 0;
-		background: rgba(0,0,0,0.4);
+		background: rgba(0,0,0,0.3);
+		color: white;
 	}
 }
 
