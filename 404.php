@@ -5,8 +5,12 @@
 		<article class="wrapper content-wrapper">
 
 			<header>
-				<h1><?php _e( 'Sorry, no posts matched your criteria.', 'hmbl' ); ?></h1>
+				<h1><?php _e( "The page wasn't found", "hmbl" ); ?></h1>
 			</header>
+
+			<div>
+				<p><?php _e( "Sorry, the page you're looking for doesn't exist.", "hmbl" ); ?></p>
+			</div>
 
 			<p><?php get_search_form(); ?></p>
 

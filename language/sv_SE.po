@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hmbl-WP\n"
-"POT-Creation-Date: 2016-11-29 09:32+0100\n"
-"PO-Revision-Date: 2016-11-29 09:34+0100\n"
+"POT-Creation-Date: 2017-04-24 09:18+0200\n"
+"PO-Revision-Date: 2017-04-24 09:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,17 +20,21 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:7 index.php:17 page.php:17 single.php:17
-msgid "Sorry, no posts matched your criteria."
-msgstr "Oj då, inga inlägg matchade dina kriterier."
+#: 404.php:6
+msgid "The page wasn't found"
+msgstr "Sidan kunde inte hittas"
+
+#: 404.php:7
+msgid "Sorry, the page you're looking for doesn't exist."
+msgstr "Ledsen, men sidan du söker finns inte."
 
 #: functions.php:22
 msgid "Primary Menu"
 msgstr "Primär meny"
 
-#: functions.php:70
-msgid "Primary Sidebar"
-msgstr "Primärt sidofält"
+#: index.php:15 page.php:15 single.php:15
+msgid "Sorry, no posts matched your criteria."
+msgstr "Oj då, inga inlägg matchade dina kriterier."
 
 #. Theme Name of the plugin/theme
 msgid "hmbl-WP"
