@@ -17,7 +17,7 @@
 			</article>
 
 		<?php endwhile; else: ?>
-			<p><?php _e( 'Sorry, no posts matched your criteria.', 'hmbl' ); ?></p>
+			<p><?php _e( "Sorry, the page you're looking for doesn't exist.", "hmbl" ); ?></p>
 		<?php endif; ?>
 
 		<?php get_sidebar(); ?>
