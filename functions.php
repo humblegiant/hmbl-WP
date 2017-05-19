@@ -1,5 +1,11 @@
 <?php
 /**
+ * Hide the WordPress version number
+ */
+remove_action( 'wp_head', 'wp_generator' );
+add_filter( 'the_generator', '__return_false' );
+
+/**
  * Enqueue theme styles
  */
 function hmbl_styles() {
