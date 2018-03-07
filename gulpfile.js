@@ -5,7 +5,6 @@ var gulp         = require('gulp'),
 	sass         = require('gulp-sass'),
 	sourcemaps   = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
-	minifier     = require('gulp-clean-css'),
 	uglify       = require('gulp-uglify'),
 	concat       = require('gulp-concat');
 
