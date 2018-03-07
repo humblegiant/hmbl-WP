@@ -6,13 +6,15 @@ var gulp         = require('gulp'),
 	sourcemaps   = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
 	uglify       = require('gulp-uglify'),
-	concat       = require('gulp-concat');
+	concat       = require('gulp-concat'),
+	plumber       = require('gulp-plumber');
 
 // Sass public compiler
 gulp.task('public-sass', function() {
 	return gulp.src('_source/scss/main.scss')
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(autoprefixer('last 2 versions', '> 2%', 'ie 9'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css/'));
@@ -21,6 +23,7 @@ gulp.task('public-sass', function() {
 // Sass admin compiler
 gulp.task('admin-sass', function() {
 	return gulp.src('_source/scss/admin.scss')
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 versions', '> 2%', 'ie 9'))
@@ -35,7 +38,8 @@ gulp.task('sass', ['public-sass', 'admin-sass']);
 // Process public javascript
 gulp.task('public-js', function() {
 	return gulp.src('_source/js/public/**/*.js')
-		.pipe(uglify()).on('error', logError)
+		.pipe(plumber())
+		.pipe(uglify())
 		.pipe(concat('script.min.js'))
 		.pipe(gulp.dest('./js/'));
 });
@@ -43,7 +47,8 @@ gulp.task('public-js', function() {
 // Process admin javascript
 gulp.task('admin-js', function() {
 	return gulp.src('_source/js/admin/**/*.js')
-		.pipe(uglify()).on('error', logError)
+		.pipe(plumber())
+		.pipe(uglify())
 		.pipe(concat('admin.min.js'))
 		.pipe(gulp.dest('./js/'));
 });
