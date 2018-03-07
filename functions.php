@@ -107,7 +107,10 @@ add_action( 'widgets_init', 'hmbl_widgets_init' );
 /**
  * Load theme text domain
  */
-load_theme_textdomain( 'hmbl', get_stylesheet_directory().'/language' );
+function hmbl_laod_theme_textdomain(){
+	load_theme_textdomain( 'hmbl', get_stylesheet_directory().'/language' );
+}
+add_action( 'after_setup_theme', 'hmbl_laod_theme_textdomain' );
 
 /**
  * Add wrapper to embedded media
