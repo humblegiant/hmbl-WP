@@ -9,23 +9,49 @@ var gulp         = require('gulp'),
 	uglify       = require('gulp-uglify'),
 	concat       = require('gulp-concat');
 
-// Sass compiler
-gulp.task('sass', function() {
+// Sass public compiler
+gulp.task('public-sass', function() {
 	return gulp.src('_source/scss/main.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css/'));
 });
 
-// Process javascript
-gulp.task('js', function() {
-    return gulp.src('_source/js/**/*.js')
-      .pipe(uglify()).on('error', logError)
-      .pipe(concat('script.min.js'))
-      .pipe(gulp.dest('./js/'));
+// Sass admin compiler
+gulp.task('admin-sass', function() {
+	return gulp.src('_source/scss/admin.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./css/'));
 });
+
+// Group the sass tasks into one
+gulp.task('sass', ['public-sass', 'admin-sass']);
+
+
+// Process public javascript
+gulp.task('public-js', function() {
+	return gulp.src('_source/js/public/**/*.js')
+		.pipe(uglify()).on('error', logError)
+		.pipe(concat('script.min.js'))
+		.pipe(gulp.dest('./js/'));
+});
+
+// Process admin javascript
+gulp.task('admin-js', function() {
+	return gulp.src('_source/js/admin/**/*.js')
+		.pipe(uglify()).on('error', logError)
+		.pipe(concat('admin.min.js'))
+		.pipe(gulp.dest('./js/'));
+});
+
+// Group the js tasks into one
+gulp.task('js', ['public-js', 'admin-js']);
+
 
 // Watch for changes
 gulp.task('serve', ['sass', 'js'], function(){

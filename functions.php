@@ -22,6 +22,22 @@ function hmbl_scripts() {
 add_action( 'wp_enqueue_scripts', 'hmbl_scripts' );
 
 /**
+ * Enqueue admin styles
+ */
+function hmbl_admin_styles() {
+	wp_enqueue_style('admin-style', get_template_directory_uri() . '/css/admin.css');
+}
+add_action( 'admin_enqueue_scripts', 'hmbl_admin_styles' );
+
+/**
+ * Enqueue admin scripts
+ */
+function hmbl_admin_scripts() {
+	wp_enqueue_script('admin-script', get_template_directory_uri() . '/js/admin.min.js', array('jquery'), '1.0.0', true);
+}
+add_action( 'admin_enqueue_scripts', 'hmbl_admin_scripts' );
+
+/**
  * Register menus
  */
 function hmbl_register_menus() {
