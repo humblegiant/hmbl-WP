@@ -13,7 +13,7 @@ gulp.task('public-sass', function() {
 	return gulp.src('_source/scss/main.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
+		.pipe(autoprefixer('last 2 versions', '> 2%', 'ie 9'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css/'));
 });
@@ -23,7 +23,7 @@ gulp.task('admin-sass', function() {
 	return gulp.src('_source/scss/admin.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer("last 2 versions", "> 2%", "ie 9"))
+		.pipe(autoprefixer('last 2 versions', '> 2%', 'ie 9'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css/'));
 });
