@@ -2,6 +2,7 @@
 
 // grab the gulp packages
 var gulp         = require('gulp'),
+	babel         = require('gulp-babel'),
 	sass         = require('gulp-sass'),
 	sourcemaps   = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -39,17 +40,19 @@ gulp.task('sass', ['public-sass', 'admin-sass']);
 gulp.task('public-js', function() {
 	return gulp.src('_source/js/public/**/*.js')
 		.pipe(plumber())
-		.pipe(uglify())
 		.pipe(concat('script.min.js'))
+		.pipe(babel())
+		.pipe(uglify())
 		.pipe(gulp.dest('./js/'));
 });
 
 // Process admin javascript
 gulp.task('admin-js', function() {
-	return gulp.src('_source/js/admin/**/*.js')
+	return gulp.src(['_source/js/admin/admin.js', '_source/js/admin/**/*.js'])
 		.pipe(plumber())
-		.pipe(uglify())
 		.pipe(concat('admin.min.js'))
+		.pipe(babel())
+		.pipe(uglify())
 		.pipe(gulp.dest('./js/'));
 });
 
