@@ -50,6 +50,11 @@ add_action( 'after_setup_theme', 'hmbl_register_menus' );
  */
 function hmbl_og_tags() {
 	global $post;
+
+	if (!is_a($post, 'WP_Post')) {
+		return false;
+	}
+
 	// Get the URL
 	$url = get_the_permalink();
 
