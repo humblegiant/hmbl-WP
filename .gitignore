@@ -14,6 +14,7 @@ bower_components
 *.min.js
 *.css.map
 /css/main.css
+/css/admin.css
 
 # Sass cache
 .sass-cache

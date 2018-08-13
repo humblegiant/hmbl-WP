@@ -33,7 +33,7 @@ gulp.task('admin-sass', function() {
 });
 
 // Group the sass tasks into one
-gulp.task('sass', ['public-sass', 'admin-sass']);
+gulp.task('sass', gulp.series('public-sass', 'admin-sass'));
 
 
 // Process public javascript
@@ -57,17 +57,17 @@ gulp.task('admin-js', function() {
 });
 
 // Group the js tasks into one
-gulp.task('js', ['public-js', 'admin-js']);
+gulp.task('js', gulp.series('public-js', 'admin-js'));
 
 
 // Watch for changes
-gulp.task('serve', ['sass', 'js'], function(){
-	gulp.watch('_source/**/*.scss', ['sass']);
-	gulp.watch('_source/**/*.js', ['js']);
-});
+gulp.task('serve', gulp.series('sass', 'js', function(){
+	gulp.watch('_source/**/*.scss', gulp.series('sass'));
+	gulp.watch('_source/**/*.js', gulp.series('js'));
+}));
 
 // Set serve as default task
-gulp.task('default', ['serve']);
+gulp.task('default', gulp.series('serve'));
 
 // Error handler
 var logError = function(error) {
